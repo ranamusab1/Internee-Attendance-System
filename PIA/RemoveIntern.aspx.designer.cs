@@ -13,31 +13,22 @@ public partial class RemoveIntern
 {
 
     /// <summary>
-    /// form1 control.
+    /// lblMessage control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    protected global::System.Web.UI.WebControls.Label lblMessage;
 
     /// <summary>
-    /// lblMsg control.
+    /// txtSearchCNIC control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblMsg;
-
-    /// <summary>
-    /// txtCNIC control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox txtCNIC;
+    protected global::System.Web.UI.WebControls.TextBox txtSearchCNIC;
 
     /// <summary>
     /// btnSearch control.
@@ -49,20 +40,11 @@ public partial class RemoveIntern
     protected global::System.Web.UI.WebControls.Button btnSearch;
 
     /// <summary>
-    /// lblDetails control.
+    /// gvInterns control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblDetails;
-
-    /// <summary>
-    /// btnRemove control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button btnRemove;
+    protected global::System.Web.UI.WebControls.GridView gvInterns;
 }

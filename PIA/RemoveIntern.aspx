@@ -1,62 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" Codebehind="RemoveIntern.aspx.cs" Inherits="RemoveIntern" %>
+﻿<%@ Page Title="Remove Intern" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" Codebehind="RemoveIntern.aspx.cs" Inherits="RemoveIntern" %>
 
-<!DOCTYPE html>
-<html>
-<head runat="server">
-    <title>Remove Intern</title>
-    <style>
-        body {
-            font-family: Arial;
-            padding: 30px;
-        }
-        .form-box {
-            background: #f4f4f4;
-            padding: 20px;
-            border-radius: 10px;
-            width: 500px;
-            margin: auto;
-        }
-        .form-box h2 {
-            text-align: center;
-        }
-        .form-box input[type="text"] {
-            width: 95%;
-            padding: 10px;
-            margin: 8px 0;
-        }
-        .form-box input[type="submit"], .form-box input[type="button"] {
-            padding: 10px 20px;
-            background-color: #b22222;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .info {
-            margin-top: 15px;
-            font-weight: bold;
-            background-color: #e0e0e0;
-            padding: 10px;
-            border-radius: 6px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="form-box">
-            <h2>Remove Intern</h2>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="container mt-4">
+        <h2 class="text-center mb-4 text-white bg-dark p-2 rounded">Remove Intern</h2>
 
-            <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" CssClass="text-success"></asp:Label>
 
-            <asp:TextBox ID="txtCNIC" runat="server" Placeholder="Enter Intern CNIC to Search"></asp:TextBox>
-            <asp:Button ID="btnSearch" runat="server" Text="Search Intern" OnClick="btnSearch_Click" />
-
-            <div class="info">
-                <asp:Label ID="lblDetails" runat="server" Text=""></asp:Label>
-            </div>
-
-            <asp:Button ID="btnRemove" runat="server" Text="Remove Intern" OnClick="btnRemove_Click" Visible="false" />
+        <div class="form-group mb-3">
+            <asp:TextBox ID="txtSearchCNIC" runat="server" CssClass="form-control" placeholder="Enter CNIC to Search"></asp:TextBox>
         </div>
-    </form>
-</body>
-</html>
+
+        <div class="form-group mb-3">
+            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-success" OnClick="btnSearch_Click" />
+        </div>
+
+        <asp:GridView ID="gvInterns" runat="server" CssClass="table table-bordered table-striped table-hover"
+            AutoGenerateColumns="False" OnRowCommand="gvInterns_RowCommand">
+            <Columns>
+                <asp:BoundField DataField="InternID" HeaderText="Intern ID" />
+                <asp:BoundField DataField="InternName" HeaderText="Full Name" />
+                <asp:BoundField DataField="CNIC" HeaderText="CNIC" />
+                <asp:BoundField DataField="ContactNumber" HeaderText="Contact" />
+                <asp:BoundField DataField="Department" HeaderText="Department" />
+                <asp:ButtonField CommandName="DeleteIntern" Text="Remove" ButtonType="Button" ControlStyle-CssClass="btn btn-danger btn-sm" />
+            </Columns>
+        </asp:GridView>
+    </div>
+</asp:Content>

@@ -1,71 +1,57 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.UI;
+using System.Configuration;
 
-namespace PIA
+public partial class ViewInterns : System.Web.UI.Page
 {
-    public partial class ViewInterns : System.Web.UI.Page
+    string conStr = ConfigurationManager.ConnectionStrings["PIAConnection"].ConnectionString;
+
+    protected void Page_Load(object sender, EventArgs e)
     {
-        private string connStr;
-        protected void btnSearch_Click(object sender, EventArgs e)
+        if (Session["Username"] == null || Session["Role"] == null)
         {
-            string filter = txtSearch.Text.Trim();
-            LoadInterns(filter);
+            Response.Redirect("Login.aspx");
         }
 
-        protected void Page_Load(object sender, EventArgs e)
+        if (!IsPostBack)
         {
-
-            connStr = ConfigurationManager.ConnectionStrings["PIAConnection"].ConnectionString;
-
-            if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "DepartmentAdmin")
-            {
-                Response.Redirect("Login.aspx");
-            }
-
-            if (!IsPostBack)
-            {
-                LoadInterns();
-            }
-
+            LoadInterns();
         }
-        private void LoadInterns(string filter = "")
+    }
+
+    protected void LoadInterns()
+    {
+        using (SqlConnection con = new SqlConnection(conStr))
         {
-            string connStr = ConfigurationManager.ConnectionStrings["PIAConnection"].ConnectionString;
+            string department = Session["Department"]?.ToString();
+            string role = Session["Role"].ToString();
 
-            using (SqlConnection con = new SqlConnection(connStr))
+            string query;
+
+            if (role == "MainAdmin")
             {
-                string query = "SELECT InternID, InternName, CNIC, ContactNumber FROM Interns";
-
-                if (!string.IsNullOrEmpty(filter))
-                {
-                    query += " WHERE InternName LIKE @Filter OR CNIC LIKE @Filter";
-                }
-
-                SqlCommand cmd = new SqlCommand(query, con);
-                if (!string.IsNullOrEmpty(filter))
-                {
-                    cmd.Parameters.AddWithValue("@Filter", "%" + filter + "%");
-                }
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-
-                try
-                {
-                    con.Open();
-                    da.Fill(dt);
-                    GridViewInterns.DataSource = dt;
-                    GridViewInterns.DataBind();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("Database Error: " + ex.Message);
-                }
+                // MainAdmin can view all interns
+                query = "SELECT InternID, InternName, CNIC, ContactNumber, Department FROM Interns";
             }
-        }
+            else
+            {
+                // DepartmentAdmin sees interns from their department only
+                query = "SELECT InternID, InternName, CNIC, ContactNumber, Department FROM Interns WHERE Department = @Department";
+            }
 
+            SqlCommand cmd = new SqlCommand(query, con);
+            if (role != "MainAdmin")
+            {
+                cmd.Parameters.AddWithValue("@Department", department);
+            }
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+            gvInterns.DataSource = dt;
+            gvInterns.DataBind();
+        }
     }
 }

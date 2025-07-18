@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDashboard.aspx.cs" Inherits="PIA.DepartmentDashboard" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PIA.Site" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head runat="server">
+    <title>Intern Attendance System</title>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
     <meta charset="UTF-8" />
-    <title>PIA Department Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap & FontAwesome -->
@@ -19,12 +20,10 @@
             min-height: 100vh;
         }
 
-        /* Navbar */
         .navbar-custom {
             background-color: #ffffff;
             border-bottom: 1px solid #ddd;
             padding: 10px 20px;
-            align-items: center;
         }
 
         .navbar-custom img {
@@ -38,7 +37,6 @@
             margin-left: 20px;
             font-size: 15px;
             padding: 10px 8px;
-            transition: color 0.3s ease;
             text-decoration: none;
         }
 
@@ -58,7 +56,7 @@
             width: 80%;
         }
 
-        .navbar-custom .nav-identity {
+        .nav-identity {
             color: #004d40;
             font-weight: 500;
             margin-left: 20px;
@@ -72,33 +70,19 @@
             margin-left: 20px;
         }
 
-        .logout-btn:hover {
-            text-decoration: underline;
-        }
-
-        .welcome-section {
-            background: linear-gradient(to right, rgba(0, 105, 92, 0.85), rgba(0, 77, 64, 0.85)),
-                        url('ourteam.png') no-repeat center center;
-            background-size: cover;
-            min-height: calc(100vh - 100px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .welcome-heading {
-            font-size: 40px;
-            font-weight: bold;
-        }
-
         .footer {
             background-color: #00382f;
             color: #ccc;
             font-size: 13px;
             text-align: center;
+            padding: 40px 20px;
+        }
+
+        .main-content {
+            background: linear-gradient(to right, rgba(0, 105, 92, 0.85), rgba(0, 77, 64, 0.85)),
+                        url('ourteam.png') no-repeat center center;
+            background-size: cover;
+            flex: 1;
             padding: 40px 20px;
         }
     </style>
@@ -114,33 +98,21 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-4 me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="DepartmentDashboard.aspx">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="RegisterIntern.aspx">Register Intern</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="RemoveIntern.aspx">Remove Intern</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ViewInterns.aspx">View Interns</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="MarkAttendance.aspx">Mark Attendance</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="DepartmentDashboard.aspx">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="RegisterIntern.aspx">Register Intern</a></li>
+                    <li class="nav-item"><a class="nav-link" href="RemoveIntern.aspx">Remove Intern</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ViewInterns.aspx">View Interns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="MarkAttendance.aspx">Mark Attendance</a></li>
                 </ul>
-
-                <!-- User Info Right -->
                 <span class="nav-identity">Username: <asp:Label ID="lblUsername" runat="server" /></span>
                 <span class="nav-identity">Department: <asp:Label ID="lblDepartment" runat="server" /></span>
-                <a href="Logout.aspx" class="logout-btn">Logout</a>
+                <a href="Login.aspx" class="logout-btn">Logout</a>
             </div>
         </nav>
 
-        <!-- Welcome Section -->
-        <div class="welcome-section">
-            <h1 class="welcome-heading">Welcome to PIA Intern Attendance System</h1>
+        <!-- Main Content Area for Child Pages -->
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
         </div>
 
         <!-- Footer -->
@@ -149,8 +121,5 @@
         </div>
 
     </form>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -70,6 +70,7 @@
     <Content Include="DepartmentDashboard.aspx" />
     <Content Include="InternPanel.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ourteam.png" />
     <Content Include="pialogo.png" />
     <Content Include="RegisterIntern.aspx" />
     <Content Include="RemoveIntern.aspx" />
@@ -113,6 +114,13 @@
     <Compile Include="RemoveIntern.aspx.designer.cs">
       <DependentUpon>RemoveIntern.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
     <Compile Include="ViewInterns.aspx.cs">
       <DependentUpon>ViewInterns.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
