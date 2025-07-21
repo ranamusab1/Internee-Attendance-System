@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PIA.Login" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PIA.Login" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@
 
     <style>
         body {
-            background: linear-gradient(to right, #00695c, #004d40);
+            background-color: darkgreen;
             font-family: 'Segoe UI', sans-serif;
             height: 100vh;
             margin: 0;
@@ -54,7 +54,7 @@
         }
 
         .btn-login {
-            background-color: #004d40;
+            background-color: darkgreen;
             color: white;
             font-weight: 500;
             border-radius: 6px;
@@ -64,7 +64,9 @@
         }
 
         .btn-login:hover {
-            background-color: #00332d;
+            background-color: white;
+            color: darkgreen;
+            border-color: darkgreen;
         }
 
         .text-danger {
@@ -94,7 +96,7 @@
     <form id="form1" runat="server">
         <div class="login-card">
             <!-- Logo -->
-            <img src="pialogo.png" alt="PIA Logo" />
+            <img src="pialogo2.png" alt="PIA Logo" />
 
             <!-- Heading -->
             <h2>Intern Attendance System</h2>
@@ -115,12 +117,6 @@
 
             <!-- Login Button -->
             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-login" />
-
-            
-            <!-- Footer -->
-            <div class="footer mt-3">
-                &copy; 2025 Pakistan International Airlines. All rights reserved.
-            </div>
         </div>
     </form>
 
