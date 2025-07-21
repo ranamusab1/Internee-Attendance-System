@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDashboard.aspx.cs" Inherits="PIA.DepartmentDashboard" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDashboard.aspx.cs" Inherits="PIA.DepartmentDashboard" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,8 +77,8 @@
         }
 
         .welcome-section {
-            background: linear-gradient(to right, rgba(0, 105, 92, 0.85), rgba(0, 77, 64, 0.85)),
-                        url('ourteam.png') no-repeat center center;
+            background: linear-gradient(to right, rgb(128 128 128 / 0.71), rgb(128 128 128 / 0.71)),
+                        url('piabanner.jpg') no-repeat center center;
             background-size: cover;
             min-height: calc(100vh - 100px);
             display: flex;
@@ -95,8 +95,11 @@
         }
 
         .footer {
-            background-color: #00382f;
-            color: #ccc;
+            background: linear-gradient(to right, rgb(128 128 128 / 0.71), rgb(128 128 128 / 0.71)),
+                        url('pialogo2.jpg') no-repeat center center;
+            background-size: cover;
+            color: black;
+            height: 100px;
             font-size: 13px;
             text-align: center;
             padding: 40px 20px;
@@ -109,7 +112,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="d-flex align-items-center">
-                <img src="pialogo.png" alt="PIA Logo" />
+                <img src="pialogo1.png" alt="PIA Logo" />
             </div>
 
             <div class="collapse navbar-collapse">
@@ -132,9 +135,9 @@
                 </ul>
 
                 <!-- User Info Right -->
-                <span class="nav-identity">Username: <asp:Label ID="lblUsername" runat="server" /></span>
-                <span class="nav-identity">Department: <asp:Label ID="lblDepartment" runat="server" /></span>
-                <a href="Logout.aspx" class="logout-btn">Logout</a>
+                <span class="nav-identity"><asp:Label ID="lblUsername" runat="server" /></span>
+                <span class="nav-identity"><asp:Label ID="lblDepartment" runat="server" /></span>
+                <a href="Login.aspx" class="logout-btn">Logout</a>
             </div>
         </nav>
 
@@ -145,7 +148,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            &copy; 2025 Pakistan International Airlines. All rights reserved.
+            © 2024. Pakistan International Airlines. All Rights Reserved.
         </div>
 
     </form>

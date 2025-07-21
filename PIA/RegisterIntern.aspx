@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register Intern" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="RegisterIntern.aspx.cs" Inherits="PIA.RegisterIntern" %>
+<%@ Page Title="Register Intern" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="RegisterIntern.aspx.cs" Inherits="PIA.RegisterIntern" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -7,7 +7,7 @@
         }
 
         .register-container {
-            background-color: white;
+            background-color: rgb(255 255 255 / 0.52);
             padding: 30px;
             max-width: 700px;
             margin: 40px auto;
@@ -18,7 +18,7 @@
         h2 {
             text-align: center;
             margin-bottom: 30px;
-            color: #004d40;
+
         }
 
         label {
@@ -42,7 +42,7 @@
             margin-top: 25px;
             width: 100%;
             padding: 12px;
-            background-color: #004d40;
+            background-color: darkgreen;
             color: white;
             border: none;
             border-radius: 6px;
@@ -52,7 +52,9 @@
         }
 
         .btn-register:hover {
-            background-color: #00332f;
+            background-color: white;
+            color: darkgreen;
+            border-color: darkgreen;
         }
 
         .msg {

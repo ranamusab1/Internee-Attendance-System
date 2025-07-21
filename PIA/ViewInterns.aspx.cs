@@ -1,57 +1,43 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-public partial class ViewInterns : System.Web.UI.Page
+namespace PIA
 {
-    string conStr = ConfigurationManager.ConnectionStrings["PIAConnection"].ConnectionString;
-
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class ViewInterns : System.Web.UI.Page
     {
-        if (Session["Username"] == null || Session["Role"] == null)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "DepartmentAdmin")
+            {
+                Response.Redirect("Login.aspx");
+            }
+            if (!IsPostBack)
+            {
+                LoadInterns();
+            }
         }
 
-        if (!IsPostBack)
+        private void LoadInterns()
         {
-            LoadInterns();
-        }
-    }
+            if (Session["Department"] == null)
+                return;
 
-    protected void LoadInterns()
-    {
-        using (SqlConnection con = new SqlConnection(conStr))
-        {
-            string department = Session["Department"]?.ToString();
-            string role = Session["Role"].ToString();
+            string department = Session["Department"].ToString();
+            string connStr = ConfigurationManager.ConnectionStrings["PIAConnection"].ConnectionString;
 
-            string query;
-
-            if (role == "MainAdmin")
+            using (SqlConnection con = new SqlConnection(connStr))
             {
-                // MainAdmin can view all interns
-                query = "SELECT InternID, InternName, CNIC, ContactNumber, Department FROM Interns";
-            }
-            else
-            {
-                // DepartmentAdmin sees interns from their department only
-                query = "SELECT InternID, InternName, CNIC, ContactNumber, Department FROM Interns WHERE Department = @Department";
-            }
-
-            SqlCommand cmd = new SqlCommand(query, con);
-            if (role != "MainAdmin")
-            {
+                string query = "SELECT InternID, InternName, CNIC, ContactNumber, Department FROM Interns WHERE Department = @Department";
+                SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@Department", department);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                gvInterns.DataSource = dt;
+                gvInterns.DataBind();
             }
-
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-            gvInterns.DataSource = dt;
-            gvInterns.DataBind();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InternPanel.aspx.cs" Inherits="PIA.InternPanel" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InternPanel.aspx.cs" Inherits="PIA.InternPanel" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
