@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Web.UI;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace PIA
             if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "DepartmentAdmin")
             {
                 Response.Redirect("Login.aspx");
+                return;
             }
 
             lblUsername.Text = "User: " + Session["Username"].ToString();

@@ -29,3 +29,27 @@ CREATE TABLE Interns (
     Department VARCHAR(50)
 );
 select * from Interns;
+
+
+CREATE TABLE Attendance (
+    AttendanceID INT IDENTITY(1,1) PRIMARY KEY,
+    InternID vARCHAR(10) NOT NULL,
+    Date DATE NOT NULL,
+    Status NVARCHAR(20) NOT NULL,
+    CONSTRAINT FK_Attendance_Interns FOREIGN KEY (InternID) REFERENCES Interns(InternID)
+);
+ SELECT 
+    A.AttendanceID,
+    A.InternID,
+    I.InternName,
+    I.CNIC,
+    A.Date,
+    A.Status
+FROM 
+    Attendance A
+INNER JOIN 
+    Interns I ON A.InternID = I.InternID;
+
+
+SELECT * FROM Attendance;
+

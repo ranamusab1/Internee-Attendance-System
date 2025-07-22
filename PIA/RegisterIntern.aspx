@@ -1,4 +1,4 @@
-<%@ Page Title="Register Intern" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="RegisterIntern.aspx.cs" Inherits="PIA.RegisterIntern" %>
+﻿<%@ Page Title="Register Intern" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="RegisterIntern.aspx.cs" Inherits="PIA.RegisterIntern" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -70,7 +70,7 @@
     <div class="register-container">
         <h2>Register New Intern</h2>
 
-        <asp:Label ID="lblMessage" runat="server" CssClass="msg" />
+        
 
         <label for="txtName">Full Name</label>
         <asp:TextBox ID="txtName" runat="server" />
@@ -97,5 +97,8 @@
         <asp:TextBox ID="txtRollNumber" runat="server" />
 
         <asp:Button ID="btnRegister" runat="server" Text="Register Intern" CssClass="btn-register" OnClick="btnRegister_Click" />
+
+        <asp:Label ID="lblMessage" runat="server" CssClass="msg" />
+
     </div>
 </asp:Content>

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDashboard.aspx.cs" Inherits="PIA.DepartmentDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DepartmentDashboard.aspx.cs" Inherits="PIA.DepartmentDashboard" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,6 +131,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="MarkAttendance.aspx">Mark Attendance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AdminViewAttendance.aspx">View Attendance</a>
                     </li>
                 </ul>
 

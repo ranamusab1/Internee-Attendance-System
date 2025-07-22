@@ -67,17 +67,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminViewAttendance.aspx" />
     <Content Include="DepartmentDashboard.aspx" />
     <Content Include="InternPanel.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MarkAttendance.aspx" />
     <Content Include="ourteam.png" />
+    <Content Include="piabanner.jpg" />
     <Content Include="pialogo.png" />
+    <Content Include="pialogo1.png" />
+    <Content Include="pialogo2.png" />
     <Content Include="RegisterIntern.aspx" />
     <Content Include="RemoveIntern.aspx" />
+    <Content Include="StudentViewAttendance.aspx" />
     <Content Include="ViewInterns.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminViewAttendance.aspx.cs">
+      <DependentUpon>AdminViewAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewAttendance.aspx.designer.cs">
+      <DependentUpon>AdminViewAttendance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DepartmentDashboard.aspx.cs">
       <DependentUpon>DepartmentDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +111,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MarkAttendance.aspx.cs">
+      <DependentUpon>MarkAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MarkAttendance.aspx.designer.cs">
+      <DependentUpon>MarkAttendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterIntern.aspx.cs">
@@ -120,6 +140,13 @@
     </Compile>
     <Compile Include="Site.master.designer.cs">
       <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentViewAttendance.aspx.cs">
+      <DependentUpon>StudentViewAttendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentViewAttendance.aspx.designer.cs">
+      <DependentUpon>StudentViewAttendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewInterns.aspx.cs">
       <DependentUpon>ViewInterns.aspx</DependentUpon>

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InternPanel.aspx.cs" Inherits="PIA.InternPanel" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentViewAttendance.aspx.cs" Inherits="PIA.StudentViewAttendance" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
     <meta charset="UTF-8" />
-    <title>Intern Panel</title>
+    <title>View Attendance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -74,7 +74,7 @@
             text-decoration: underline;
         }
 
-        /* Welcome Section */
+        /* Welcome Section with Attendance */
         .welcome-section {
             background: linear-gradient(to right, rgb(128 128 128 / 0.71), rgb(128 128 128 / 0.71)),
                         url('piabanner.jpg') no-repeat center center;
@@ -88,9 +88,40 @@
             text-align: center;
         }
 
-        .welcome-heading {
-            font-size: 40px;
+        .attendance-container {
+            background-color: rgb(255 255 255 / 0.52);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .attendance-title {
+            color: #004b8d;
+            margin-bottom: 25px;
+            font-size: 28px;
             font-weight: bold;
+        }
+
+        .gridview th {
+            background-color: #00796b;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .gridview td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .gridview tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        .gridview tr:hover {
+            background-color: #e0f2f1;
         }
 
         /* Footer */
@@ -129,14 +160,23 @@
             </div>
         </nav>
 
-        <!-- Welcome Section -->
+        <!-- Welcome Section with Attendance -->
         <div class="welcome-section">
-            <h1 class="welcome-heading">Welcome to Intern Panel</h1>
+            <div class="attendance-container">
+                <div class="attendance-title">View Attendance</div>
+                <asp:GridView ID="gvAttendance" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered gridview">
+                    <Columns>
+                        <asp:BoundField DataField="AttendanceDate" HeaderText="Date" DataFormatString="{0:yyyy-MM-dd}" />
+                        <asp:BoundField DataField="Status" HeaderText="Status" />
+                    </Columns>
+                </asp:GridView>
+                <asp:Label ID="lblMessage" runat="server" CssClass="text-danger mt-3"></asp:Label>
+            </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            © 2024. Pakistan International Airlines. All Rights Reserved.
+            © 2025. Pakistan International Airlines. All Rights Reserved.
         </div>
     </form>
 

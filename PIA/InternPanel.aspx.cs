@@ -14,6 +14,7 @@ namespace PIA
             if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "Intern")
             {
                 Response.Redirect("Login.aspx");
+                return;
             }
 
             lblUsername.Text = "User: " + Session["Username"].ToString();

@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PIA.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PIA.Site" %>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -106,6 +106,7 @@
                     <li class="nav-item"><a class="nav-link" href="RemoveIntern.aspx">Remove Intern</a></li>
                     <li class="nav-item"><a class="nav-link" href="ViewInterns.aspx">View Interns</a></li>
                     <li class="nav-item"><a class="nav-link" href="MarkAttendance.aspx">Mark Attendance</a></li>
+                    <li class="nav-item"><a class="nav-link" href="AdminViewAttendance.aspx">View Attendance</a></li>
                 </ul>
                 <span class="nav-identity"><asp:Label ID="lblUsername" runat="server" /></span>
                 <span class="nav-identity"><asp:Label ID="lblDepartment" runat="server" /></span>

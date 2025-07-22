@@ -1,4 +1,4 @@
-<%@ Page Title="View Interns" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewInterns.aspx.cs" Inherits="PIA.ViewInterns" %>
+﻿<%@ Page Title="View Interns" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="ViewInterns.aspx.cs" Inherits="PIA.ViewInterns" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>

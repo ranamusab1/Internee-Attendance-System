@@ -11,16 +11,25 @@ namespace PIA
 {
 
 
-    public partial class ViewInterns
+    public partial class MarkAttendance
     {
 
         /// <summary>
-        /// gvInterns control.
+        /// gvAttendance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInterns;
+        protected global::System.Web.UI.WebControls.GridView gvAttendance;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

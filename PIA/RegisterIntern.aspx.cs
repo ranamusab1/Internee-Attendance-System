@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -16,6 +16,7 @@ namespace PIA
             if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "DepartmentAdmin")
             {
                 Response.Redirect("Login.aspx");
+                return;
             }
         }
         protected void btnRegister_Click(object sender, EventArgs e)

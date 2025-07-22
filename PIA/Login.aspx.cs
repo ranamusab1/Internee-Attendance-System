@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,18 +14,18 @@ namespace PIA
         {
             lblMessage.Text = "";
         }
+
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            if (username == "" || password == "")
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 lblMessage.Text = "Please enter both username and password.";
                 return;
             }
 
-            // Connection string (adjust as per your local DB config)
             string connectionString = "Data Source=localhost;Initial Catalog=PIA;Integrated Security=True";
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -49,6 +49,28 @@ namespace PIA
                         Session["Username"] = username;
                         Session["Role"] = role;
                         Session["Department"] = department;
+
+                        // Fetch InternID only if role is Intern
+                        if (role == "Intern")
+                        {
+                            con.Close(); // Close reader
+                            string internIdQuery = "SELECT InternID FROM Interns WHERE InternID = @Username";
+                            using (SqlCommand cmdIntern = new SqlCommand(internIdQuery, con))
+                            {
+                                cmdIntern.Parameters.AddWithValue("@Username", username);
+                                con.Open();
+                                object internIdObj = cmdIntern.ExecuteScalar();
+                                if (internIdObj != null)
+                                {
+                                    Session["InternID"] = internIdObj.ToString();
+                                }
+                                else
+                                {
+                                    lblMessage.Text = "Intern ID not found. Please contact admin.";
+                                    return;
+                                }
+                            }
+                        }
 
                         // Redirect based on role
                         if (role == "DepartmentAdmin")

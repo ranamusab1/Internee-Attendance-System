@@ -1,4 +1,4 @@
-<%@ Page Title="Remove Intern" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" Codebehind="RemoveIntern.aspx.cs" Inherits="RemoveIntern" %>
+﻿<%@ Page Title="Remove Intern" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" Codebehind="RemoveIntern.aspx.cs" Inherits="RemoveIntern" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <style>

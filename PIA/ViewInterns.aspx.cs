@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -12,6 +12,7 @@ namespace PIA
             if (Session["Username"] == null || Session["Role"] == null || Session["Role"].ToString() != "DepartmentAdmin")
             {
                 Response.Redirect("Login.aspx");
+                return;
             }
             if (!IsPostBack)
             {
